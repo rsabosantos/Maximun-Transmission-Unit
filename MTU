@@ -1,0 +1,14 @@
+@echo off
+set /A count=1500
+set /P var1="Enter site or IP address "
+:main
+cls
+SET /A count=count-1
+ping %var1% -f -l %count% -n 1 && goto results  || goto main
+:results
+cls
+echo "Results"
+echo. 
+echo "Packet size for %var1%  is %count% "
+pause 
+exit
